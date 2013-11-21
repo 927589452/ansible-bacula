@@ -34,7 +34,7 @@
 
 - command: touch /etc/bacula/clients/dummy.conf
 
-- postgresql_user: user=bacula password={{ pgsql_password }}
+- postgresql_user: user=bacula password={{ pgsql_password }}:w
   sudo_user: postgres
 
 # dbcheck 

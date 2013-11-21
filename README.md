@@ -43,6 +43,15 @@ Other:
 
 ## How to test
 
+Using a Vagrant and VeeWee:
+
+bundle exec veewee vbox define 'bacula-client' 'ubuntu-12.04.3-server-amd64'
+bundle exec veewee vbox build 'bacula-client'
+bundle exec veewee vbox export 'backup-client'
+vagrant box add 'bacula-client' 'bacula-client.box'
+
+
+
 - Make a lxc or virtualbox with clean Ubuntu 12.04 install with sshd.
 - Bind VM port 22 to localhost 2222 (or edit testing inventory).
 - Add your key to sudo user.

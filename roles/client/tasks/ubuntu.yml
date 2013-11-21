@@ -6,10 +6,9 @@
 - service: name=bacula-fd state=stopped
 
 - template: src=bacula-fd.conf.jinja2 dest=/etc/bacula/bacula-fd.conf backup=yes
-
+- action: file path=/etc/bacula/clients state=directory
 - template: src=client.conf.jinja2 dest=/etc/bacula/clients/{{ client_name }}-client.conf
   notify:
   - restart bacula-dir
-  delegate_to: "{{ groups['director'][0] }}"
 
 - service: name=bacula-fd state=started

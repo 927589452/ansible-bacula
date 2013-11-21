@@ -1,0 +1,14 @@
+Backup solution:
+	- file backup
+	- /etc backup with etckeeper
+	- mysql backup with xtrabackup
+	- storage will use a tapelibrary
+
+Tasks:
+	- setup server
+	- add client
+	- remove client
+
+Tests:
+	- vagrant centos 5, 6
+	- vagrant ubuntu 12.04

@@ -1,0 +1,5 @@
+---
+- include: ../../ansible-bacula/testing-director-storage.yml
+- hosts: bacula-server
+  user: vagrant
+  sudo: yes

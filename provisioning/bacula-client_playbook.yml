@@ -1,0 +1,5 @@
+---
+- include: ../../ansible-bacula/testing-clients.yml
+- hosts: bacula-client
+  user: vagrant
+  sudo: yes

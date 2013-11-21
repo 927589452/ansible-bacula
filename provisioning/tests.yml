@@ -1,0 +1,4 @@
+---
+- include: bacula-client_playbook.yml
+- include: bacula-server_playbook.yml
+

@@ -4,15 +4,7 @@
   - name: Create a group of all hosts by operating system
     action: group_by key={{ansible_distribution}}-{{ansible_distribution_version}}
 
-- hosts: testing-storage
-  vars_files:
-    - var
-  sudo: yes
-  roles:
-    - common
-    - storage
-
-- hosts: testing-director
+- hosts: bacula-server
   vars_files:
     - var
   sudo: yes
@@ -20,8 +12,28 @@
     - common
     - dir-client
     - director
+  vars:
+    pgsql_password: sdfsdfasd
+    dir_fd_name: directory
+    bacula_fd_port: 9666
+    bacula_dir_port: 9667
+    dir_name: client-dir
+    dir_fd_password: sdfkjasldkfja
+    client_password: sdfkjasldkfja
+    bconsole_password: sdfasdfasdfa
+    bacula_sd_port: 9668
+    sd_password: alalalala
+    mail: simarg@gmail.com
 
-- hosts: testing-almir
+- hosts: bacula-server
+  vars_files:
+    - var
+  sudo: yes
+  roles:
+    - common
+    - storage
+
+- hosts: bacula-server
   vars_files:
     - var
   sudo: yes

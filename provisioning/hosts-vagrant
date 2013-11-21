@@ -1,0 +1,17 @@
+[bacula-client]
+192.168.33.10
+
+[bacula-server]
+192.168.33.11
+
+[director:children]
+bacula-server
+
+[storage:children]
+bacula-server
+
+[client:children]
+bacula-client
+
+[almir:children]
+bacula-server
