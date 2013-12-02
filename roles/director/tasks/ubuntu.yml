@@ -37,6 +37,11 @@
 - file: path=/etc/bacula/clients state=directory
 
 - command: touch /etc/bacula/clients/dummy.conf
+## load a clients
+- copy: src={{ item }} dest=/etc/bacula/clients/ owner=root
+#not sure really that is a trouble with fileglob or my path
+  with_fileglob:
+      - /Users/kevit/Projects/ansible-bacula/clients/*
 
 - postgresql_user: user=bacula password={{ pgsql_password }}:w
   sudo_user: postgres

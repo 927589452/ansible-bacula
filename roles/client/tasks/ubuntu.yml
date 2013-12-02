@@ -7,8 +7,11 @@
 
 - template: src=bacula-fd.conf.jinja2 dest=/etc/bacula/bacula-fd.conf backup=yes
 - action: file path=/etc/bacula/clients state=directory
-- template: src=client.conf.jinja2 dest=/etc/bacula/clients/{{ client_name }}-client.conf
-  notify:
-  - restart bacula-dir
+
 
 - service: name=bacula-fd state=started
+#- template: src=client.conf.jinja2 dest=clients/{{ client_name }}-client.conf
+- local_action: template src=client.conf.jinja2 dest=clients/{{ client_name }}-client.conf
+  sudo: no
+#  notify:
+#  - restart bacula-dir

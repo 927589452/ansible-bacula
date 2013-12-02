@@ -12,3 +12,6 @@ Tasks:
 Tests:
 	- vagrant centos 5, 6
 	- vagrant ubuntu 12.04
+
+Bugfix:
+  - fix a absolute path to client configs

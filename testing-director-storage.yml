@@ -15,7 +15,7 @@
   vars:
     pgsql_password: sdfsdfasd
     dir_fd_name: directory
-    bacula_fd_port: 9666
+    bacula_fd_port: 9102
     bacula_dir_port: 9667
     dir_name: client-dir
     dir_fd_password: sdfkjasldkfja
@@ -25,7 +25,7 @@
     sd_password: alalalala
     mail: simarg@gmail.com
     pg_hba_conf: /etc/postgresql/9.1/main/pg_hba.conf
-    backup_dir: backup_dir
+    backup_dir: /var/backups
 
 - hosts: bacula-server
   vars_files:
@@ -39,7 +39,7 @@
     sd_name: sdname
     dir_name: client-dir
     sd_password: alalalala
-    backup_dir: backup_dir
+    backup_dir: /var/backups
 
 - hosts: bacula-server
   vars_files:
