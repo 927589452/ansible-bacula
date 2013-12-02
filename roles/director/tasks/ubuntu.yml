@@ -29,6 +29,10 @@
 - copy: src=pool_inc_defaults.conf dest=/etc/bacula/
 
 ###
+#fix for postgres sudo
+- copy: src=vagrant dest=/etc/sudoers.d mode=440  owner=root group=root
+
+###
 
 - file: path=/etc/bacula/clients state=directory
 
@@ -43,6 +47,10 @@
 # <working-directory> <bacula-database> <user> <password> [<dbhost>] [<dbport>]
 # Used for default client cleaning
 # TODO: needs a dbdump just to be sure
+- lineinfile: dest=$pg_hba_conf regexp="^host\s+all\s+bacula\s+127\.0\.0\.1/32\s+trust$" insertafter="^#\sIPv4\slocal.+" line="host    all             bacula  127.0.0.1/32            trust"
+- name: Reload PostgreSQL if permissions have changed.
+  service: name=postgresql state=reloaded
+
 - command: dbcheck . bacula bacula {{ pgsql_password }} localhost -bf
 
 

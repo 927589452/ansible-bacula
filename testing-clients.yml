@@ -14,6 +14,10 @@
     - client
   vars:
         client_name: client
+        client_ip: 192.168.33.10
+        client_port: 9555
+        client_include_dirs: /etc
+        client_exclude_dirs: nope
         bacula_fd_port: 9666
         dir_name: client-dir
         dir_fd_password: sdfkjasldkfja

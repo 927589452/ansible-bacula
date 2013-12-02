@@ -24,6 +24,8 @@
     bacula_sd_port: 9668
     sd_password: alalalala
     mail: simarg@gmail.com
+    pg_hba_conf: /etc/postgresql/9.1/main/pg_hba.conf
+    backup_dir: backup_dir
 
 - hosts: bacula-server
   vars_files:
@@ -32,6 +34,12 @@
   roles:
     - common
     - storage
+  vars:
+    bacula_sd_port: 9668
+    sd_name: sdname
+    dir_name: client-dir
+    sd_password: alalalala
+    backup_dir: backup_dir
 
 - hosts: bacula-server
   vars_files:
